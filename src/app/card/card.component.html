@@ -1,0 +1,30 @@
+<div className="content">
+	<div *ngFor="let item of data;let i=index">
+		<div (click)="openNewDirectory(item)" class="card-container">
+			<table>
+				<div *ngIf="item.type==='folder';else fileDiv">
+					<tr class="card">
+						<span> <i class='fa fa-folder'></i> {{item.name}}</span>
+
+					</tr>
+				</div>
+				<ng-template #fileDiv>
+					<tr class="card">
+						<span> <i class='fa fa-file'></i> {{item.name}}</span>
+					</tr>
+				</ng-template>
+
+				<td>
+					<span (click)="handleEdit($event,item)" style="margin: 20px;
+			font-size: 23px; color:blue;cursor: pointer;"> <i class='	far fa-edit'></i></span>
+
+				</td>
+				<td>
+					<span (click)="handleDelete($event,item)" style="margin: 20px;
+			font-size: 23px; color: red; cursor: pointer;"><i class='fas fa-trash'></i></span>
+				</td>
+
+			</table>
+		</div>
+	</div>
+</div>

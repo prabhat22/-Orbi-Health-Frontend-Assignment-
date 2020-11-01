@@ -1,0 +1,29 @@
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    padding: 3%;
+  }
+  .card {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 162px;
+    padding: 5px;
+    margin: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #777;
+    background-color: white;
+    border: 1px solid #ddd;
+  }
+  .card:hover {
+    box-shadow: 0 0 10px 0 #ccc;
+  }
+  .card .delete-icon:hover,
+  .card .edit-icon:hover {
+    color: #333;
+    cursor: pointer;
+  }
+  
