@@ -1,7 +1,7 @@
 <div className="breadcrumb" style="text-align: center; margin: 15px 0px;">
 	<div className="path-container">
-		<p *ngFor="let obj of path;let i=index" style="display: inline;">
-			<span (click)="alterPath(i)" style="cursor:pointer;">{{obj}}/</span>
+		<p *ngFor="let obj of path;let i=index;let last=last" style="display: inline;">
+			<span (click)="alterPath(i)" style="cursor:pointer;" [ngClass]="{'last-child': last}">{{obj}}/</span>
 		</p>
 
 	</div>

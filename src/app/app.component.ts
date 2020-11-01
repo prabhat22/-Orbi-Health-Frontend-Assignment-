@@ -80,6 +80,7 @@ export class AppComponent implements OnInit {
   }
   onSubmit() {
     this.createFileFolder(this.name, this.modalTitle)
+    this.name="";
   }
   createFileFolder(name, type) {
     type = type + "s";
