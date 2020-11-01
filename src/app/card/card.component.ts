@@ -15,7 +15,6 @@ export class CardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log("data" + this.data);
   }
 
   setEditMenu(value) {
@@ -34,14 +33,13 @@ export class CardComponent implements OnInit {
   handleDelete(e, item) {
     e.preventDefault();
     e.stopPropagation();
-    console.log('delelte')
     let obj = { name: item.name, type: item.type }
     this.deleteClick.emit(obj)
   }
   handleEdit(e, item) {
     e.preventDefault();
     e.stopPropagation();
-    console.log('edit')
+    
     let obj = { name: item.name, type: item.type }
     this.editClick.emit(obj);
   }

@@ -18,7 +18,6 @@ export class AppComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    console.log('oninit')
     this.name = ""
     this.initialfolder = {
       key: "1",
@@ -43,17 +42,13 @@ export class AppComponent implements OnInit {
 
     this.path = [...this.path, name];
     let currentDirectory = this.findCurrentDirectory();
-    console.log('folder click directory', currentDirectory)
     this.contentOnScreen = currentDirectory["folders"].concat(currentDirectory["files"])
   }
 
   findCurrentDirectory() {
-    console.log('initial folder', this.initialfolder)
     var currentDirectory = this.initialfolder;
     var currentArrayToLookInto = currentDirectory["folders"];
-    console.log('path', this.path)
     this.path.forEach(level => {
-      console.log('level', level)
       if (level !== "my drive") {
         for (var i = 0; i < currentArrayToLookInto.length; i++) {
           if (level === currentArrayToLookInto[i].name) {
@@ -66,11 +61,10 @@ export class AppComponent implements OnInit {
       }
 
     });
-    console.log('chck dir', currentDirectory)
     return currentDirectory;
   }
   alterPath(index) {
-    console.log("parent" + index);
+
     var newPath = [];
     for (var i = 0; i <= index; i++) {
       newPath.push(this.path[i]);
@@ -85,7 +79,6 @@ export class AppComponent implements OnInit {
     this.modalTitle = title;
   }
   onSubmit() {
-    console.log(this.name);
     this.createFileFolder(this.name, this.modalTitle)
   }
   createFileFolder(name, type) {
@@ -107,12 +100,10 @@ export class AppComponent implements OnInit {
     });
     if (!duplicateItem) {
       currentArrayToLookInto.push(fObject);
-      console.log(this.initialfolder)
       let currentDirectory = this.findCurrentDirectory();
       this.contentOnScreen = currentDirectory["folders"].concat(
         currentDirectory["files"]
       );
-      console.log(this.contentOnScreen);
     }
   }
   deleteFileFolder(object) {
@@ -139,7 +130,6 @@ export class AppComponent implements OnInit {
   }
   onEdit() {
     let currentDirectory = this.findCurrentDirectory();
-    console.log('edit dire', currentDirectory, currentDirectory[this.editType]);
     currentDirectory[this.editType].forEach(item => {
       if (item.name === this.editObject.name) {
         item.name = this.name;
