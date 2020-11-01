@@ -1,25 +1,5 @@
 <app-header></app-header>
 <app-breadcrumb [path]="path" (parentPath)="alterPath($event)"></app-breadcrumb>
-
-<!-- Button trigger modal -->
-<!-- <div class="container" style="margin:15px 0px">
-	<div class="row">
-		<div class="col-12" style="text-align: center;">
-			<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal"
-				(click)="setModalTitle('File')" style="width: 30%;
-			margin-right: 30px;">
-				Create File
-			</button>
-			<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal"
-				(click)="setModalTitle('Folder')" style="width: 32%;margin-left: 30px;">
-				Create Folder
-			</button>
-		</div>
-
-
-
-	</div>
-</div> -->
 <div  style="display: flex;margin-left: 23%;margin-bottom: 15px;">
 	<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal"
 		(click)="setModalTitle('File')" style="width: 30%;">
@@ -32,7 +12,7 @@
 </div>
 
 
-<app-card [data]="contentOnScreen" (folderClick)="displayCurrentDirectory($event)"
+<app-card [data]="dataToDisplay" (folderClick)="displayCurrDir($event)"
 	(deleteClick)="deleteFileFolder($event)" (editClick)="handleEdit($event)" style="text-align: -webkit-center;">
 </app-card>
 

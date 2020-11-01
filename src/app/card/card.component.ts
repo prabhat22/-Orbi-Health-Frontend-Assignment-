@@ -7,29 +7,37 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
   styleUrls: ["./card.component.css"]
 })
 export class CardComponent implements OnInit {
+
+  /**
+   * Input  of card component
+   * Takes the data from parent component to traverse as a list of object.
+   */
   @Input() data;
-  editDeleteMenu = false;
+  /**
+   * Output  of card component
+   * Allow parent component to recognise that folder is click.
+   */
   @Output() folderClick: EventEmitter<string> = new EventEmitter();
+  /**
+   * Output  of card component
+   * Allow parent component to recognise the delete event for a file or folder.
+   */
   @Output() deleteClick: EventEmitter<Object> = new EventEmitter();
+  /**
+   * Output  of card component
+   * Allow parent component to recognise the edit event for a file or folder.
+   */
   @Output() editClick: EventEmitter<Object> = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
   }
-
-  setEditMenu(value) {
-    this.editDeleteMenu = value;
-  }
   openNewDirectory(item) {
-    if (!this.editDeleteMenu && item.type === "folder") {
+    if ( item.type === "folder") {
       this.folderClick.emit(item.name)
     }
   }
-  rightClick(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    this.setEditMenu(true);
-  }
+
   handleDelete(e, item) {
     e.preventDefault();
     e.stopPropagation();

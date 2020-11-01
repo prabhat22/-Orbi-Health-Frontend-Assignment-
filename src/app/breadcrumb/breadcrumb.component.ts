@@ -6,7 +6,15 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
   styleUrls: ["./breadcrumb.component.css"]
 })
 export class BreadcrumbComponent implements OnInit {
+  /**
+   * Input  of breadcrumb component
+   * Takes path as an input from parent component.
+   */
   @Input() path;
+  /**
+   * Output  of breadcrumb component
+   * Return index of the folder name click
+   */
   @Output() parentPath: EventEmitter<number> = new EventEmitter();
   constructor() { }
 
